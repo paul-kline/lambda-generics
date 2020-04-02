@@ -19,32 +19,14 @@ public class Utils {
     should take 2 parameters, (1) an instance of any type and (2) an int of the
     number of times to repeat said element in an arraylist.
      */
-    public static <T> ArrayList<T> repeat(T x, int i) {
-        ArrayList<T> arr = new ArrayList();
-        for (int j = 0; j < i; j++) {
-            arr.add(x);
-        }
-        return arr;
-    }
+   
 
     /*
     2. Write a function called indexedOutput that takes an ArrayList of any type
     and RETURNS a two line string where the first line is the index of each
     element.
      */
-    public static <T> String prettyPrint(ArrayList<T> arr) {
-        StringBuilder str1 = new StringBuilder();
-        StringBuilder str2 = new StringBuilder();
-        for (int i = 0; i < arr.size(); i++) {
-            String s2 = "" + arr.get(i);
-            String si = "" + i;
-            String s1 = si + (s2.length() - (si.length()));
-            str1.append(s1);
-            str2.append(s2);
-        }
-        return str1.toString() + "\n" + str2.toString();
-
-    }
+   
 
     /*
     3. A few steps for this one. Similar to the modify integer functionality we
@@ -63,19 +45,7 @@ public class Utils {
     Here is one you can use:
          assert modifyIntegerXTimes(x -> x + 1, 5, -1) == 4 : "+1 modify test failed";
      */
-    public static Integer modifyIntegerXTimes(IntegerModifier f, int ii, Integer x) {
-        for (int i = 0; i < ii; i++) {
-            x = f.modify(x);
-        }
-        return x;
-    }
-
-    public static void modifyIntegerXTimesTester() {
-        assert modifyIntegerXTimes(x -> x + 1, 5, 10) == 15 : "modify by +1";
-        assert modifyIntegerXTimes(x -> x * x, 3, 2) == 256;
-        assert modifyIntegerXTimes(x -> x - 5, 100, 200) == -300;
-        assert modifyIntegerXTimes(x -> x * 2, 4, 1) == 16;
-    }
+  
 
     /*
     4. Write a function called checkInvolutence
@@ -108,23 +78,8 @@ public class Utils {
     Hint 2: You will need to create an interface for each arguement in
     checkInvolutence.
      */
-    public static <T> boolean checkInvolutence(MyFunction<T> f, Generator<T> g) {
-        int checks = 100;
-        for (int i = 0; i < checks; i++) {
-            T v = g.gen();
-            if (!f.f(f.f(v)).equals(v)) {
-                return false;
-            }
-        }
-        return true;
-    }
+   
 
-    public static void testInvolutence() {
-        assert checkInvolutence((Integer x) -> x + 0, () -> new Random().nextInt()) : "+0 failed involution";
-        assert !checkInvolutence((Integer x) -> x + 1, () -> new Random().nextInt()) : "+1 failed involution";
-        assert checkInvolutence((Integer x) -> x, () -> new Random().nextInt()) : "do nothing failed involution";
-        assert checkInvolutence((Integer x) -> x * -1, () -> new Random().nextInt()) : "mult -1 failed involution";
-
-    }
+  
 
 }
